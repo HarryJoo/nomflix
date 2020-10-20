@@ -13,7 +13,14 @@ const Text = styled.span`
 `;
 
 const Message = ({ text, color }) => (
-    <Container>
-      <Text color={color}>{text}</Text>
-    </Container>
-  );  
+  <Container>
+    <Text color={color}>{text}</Text>
+  </Container>
+); 
+
+Message.propTypes = {
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired
+};
+
+export default Message;
