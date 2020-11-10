@@ -13,7 +13,8 @@ export default class extends React.Component {
       result: null,
       error: null,
       loading: true,
-      isMovie: pathname.includes("/movie/")
+      isMovie: pathname.includes("/movie/"),
+      type: "youtube"
     };
   }
 
@@ -43,8 +44,16 @@ export default class extends React.Component {
     }
   }
 
+  handleTabs = type => {
+    this.setState(() => {
+      return {
+        type: type
+      };
+    });
+  };
+
   render() {
-    const { result, error, loading } = this.state;
-    return <DetailPresenter result={result} error={error} loading={loading} />;
+    const { result, error, loading, type, isMovie } = this.state;
+    return <DetailPresenter result={result} error={error} loading={loading} type={type} isMovie={isMovie} handleTabs={this.handleTabs} />;
   }
 }

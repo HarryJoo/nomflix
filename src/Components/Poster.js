@@ -58,12 +58,14 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
               : require("../assets/noPosterSmall.png")
           }
         />
+        {rating && (
         <Rating>
           <span role="img" aria-label="rating">
             ⭐️
           </span>{" "}
           {rating}/10
         </Rating>
+        )}
       </ImageContainer>
       <Title>
         {title.length > 18 ? `${title.substring(0, 18)}...` : title}
